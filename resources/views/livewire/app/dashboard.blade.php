@@ -44,7 +44,7 @@
 <div>
 <input type="hidden" id="selectedTemplateHolder"/>
 @if ($displaySecondModal)
-<x-hero-slider-modal :bgWhite="true">
+<x-hero-slider-modal>
       <div>
             <div class="w-full bg-white p-5">
                   <div class="flex justify-center w-full text-center p-4">

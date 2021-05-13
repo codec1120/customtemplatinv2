@@ -34,6 +34,7 @@
 			modal.classList.add('fadeOut');
 			setTimeout(() => {
 				modal.style.display = 'none';
+				window.location.href = window.location.href; 
 			}, 500);
 		}
 
