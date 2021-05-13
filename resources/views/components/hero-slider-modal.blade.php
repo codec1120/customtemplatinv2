@@ -46,7 +46,7 @@
 			const filename = file.split('.')[0];
 			// Display all available sliders
 			document.querySelectorAll('#sliders div').forEach( (item, index) => {
-				item.children[1].src = `${window.location.href}images/${filename}/${filename}-colored-${index+1}.png`;
+				item.children[1].src = `${window.location.href}images/${filename}/${filename}-colored-${index+1}.jpg`;
 			});
 			$('#second-card').hide();
 
