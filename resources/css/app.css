@@ -1,0 +1,85 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+body {
+    font-family: "Montserrat";
+}
+
+nav.nav-bar-class {
+    background-color: #3D5E70;
+}
+
+.title-class, h1, h2, h3, h4, h5, span {
+    color: #3D5E70;
+}
+
+.template-selection-btn {
+    background-color: #3D5E70;
+}
+
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.animated.faster {
+    -webkit-animation-duration: 500ms;
+    animation-duration: 500ms;
+}
+
+.fadeIn {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+}
+
+.fadeOut {
+    -webkit-animation-name: fadeOut;
+    animation-name: fadeOut;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+button#color-button-blue:focus {
+    border: 1px solid #ABABAB;
+    opacity: 1;
+    outline:none;
+}
+
+button#color-button-orange:focus {
+    border: 1px solid #ABABAB;
+    opacity: 1;
+    outline:none;
+}
+
+button#color-button-green:focus {
+    border: 1px solid #ABABAB;
+    opacity: 1;
+    outline:none;
+}
+
+button#color-button-red:focus {
+    border: 1px solid #ABABAB;
+    opacity: 1;
+    outline:none;
+}
