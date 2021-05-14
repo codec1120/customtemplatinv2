@@ -40,28 +40,28 @@
 
 		const openModal = (file) => 
 		{
-			modal.classList.remove('fadeOut');
-			modal.classList.add('fadeIn');
-			modal.style.display = 'flex';
-
+			
 			const filename = file.split('.')[0];
 			// Display all available sliders
 			document.querySelectorAll('#sliders div').forEach( (item, index) => {
 				getBase64Image( `${window.location.href}images/${filename}/${filename}-colored-${index+1}.jpg`, 'jpg', function (base64Url) {
 					item.children[1].src = base64Url;
+					modal.classList.remove('fadeOut');
+					modal.classList.add('fadeIn');
+					modal.style.display = 'flex';
+					$('#second-card').hide();
+
+					$('#color-button-blue').removeClass('bg-opacity-50');
+					$('#color-button-blue').addClass('bg-opacity-100');
+
+					selecetedTemplateSRC = document.querySelectorAll(`#slider1 img`)[0].src;
+					
+					document.querySelectorAll('#sliders div').forEach( (item, index) => {
+						if (index > 0) {
+							$(`#${item.id}`).hide();
+						}
+					});
 				});
-			});
-			$('#second-card').hide();
-
-			$('#color-button-blue').removeClass('bg-opacity-50');
-			$('#color-button-blue').addClass('bg-opacity-100');
-
-			selecetedTemplateSRC = document.querySelectorAll(`#slider1 img`)[0].src;
-			
-			document.querySelectorAll('#sliders div').forEach( (item, index) => {
-				if (index > 0) {
-					$(`#${item.id}`).hide();
-				}
 			});
 		}
 
@@ -83,7 +83,7 @@
 				});
 				clearInterval( imgChecker );
 			}
-		}, 100);
+		}, 50);
 		
 
 		const displaySecondCard = () => 
