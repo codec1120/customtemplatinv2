@@ -136,56 +136,56 @@
 </x-hero-slider-modal>
 @else
 <x-hero-slider-modal>
-      <div>
-            <div class="w-full bg-white p-5">
-                  <div class="flex justify-between w-full p-4">
-                        <div class="flex justify-start">
-                              <h3 class="font-semibold text-4xl tracking-wide">
-                                    Select Main Color
-                              </h3>
-                              <div class="flex justify-center ml-10">
-                                    <div  class="flex justify-between w-full mx-auto pb-2">
-                                          <div class="bg-opacity-50 focus:bg-opacity-100">
-                                                <button id="color-button-blue" onclick="enableSlider('slider1','color-button-blue')" class="bg-blue-400 bg-opacity-50 focus:bg-opacity-100 rounded-full focus:rounded-full h-7 w-7 pb-2" ></button>
-                                                <div class="text-center font-thin bg-opacity-50 focus:bg-opacity-100">BLUE</div>
-                                          </div>
-                                          <div class="ml-5 bg-opacity-50 focus:bg-opacity-100">
-                                                <button id="color-button-orange" onclick="enableSlider('slider2','color-button-orange') " class="bg-yellow-500 bg-opacity-50 focus:bg-opacity-100 rounded-full focus:rounded-full h-7 w-7 pb-2 ml-5"></button>
-                                                <div class="text-center font-thin bg-opacity-50 focus:bg-opacity-100">ORANGE</div>
-                                          </div>
-                                          <div class="ml-5 bg-opacity-50 focus:bg-opacity-100">
-                                                <button id="color-button-green" onclick="enableSlider('slider3','color-button-green') " class="bg-green-400 bg-opacity-50 focus:bg-opacity-100 rounded-full focus:rounded-full h-7 w-7 pb-2 ml-3"></button>
-                                                <div class="text-center font-thin bg-opacity-50 focus:bg-opacity-100">GREEN</div>
-                                          </div>
-                                          <div class="ml-5 bg-opacity-50 focus:bg-opacity-100">
-                                                <button id="color-button-red" onclick="enableSlider('slider4','color-button-red') " class="bg-red-400 bg-opacity-50 focus:bg-opacity-100 rounded-full focus:rounded-full h-7 w-7 pb-2"></button>
-                                                <div class="text-center font-thin bg-opacity-50 focus:bg-opacity-100">RED</div>
-                                          </div>
-                                    </div>
-                              </div>
+      <div class="flex justify-between overflow-hidden p-24">
+
+            <div class="flext justify-start w-3/6">
+                  <div >
+                        <h3 class="font-semibold text-4xl tracking-wide">
+                              Select Main Color
+                        </h3>
+                  <div class="pl-10 pr-10 mt-10">
+                        <div class="bg-opacity-50 focus:bg-opacity-100 mb-10">
+                              <button id="color-button-blue" onclick="enableSlider('slider1','color-button-blue')" class="bg-blue-400 bg-opacity-50 focus:bg-opacity-100 rounded-full focus:rounded-full h-7 w-7 pb-2" ></button>
+                              <span class="text-center font-thin bg-opacity-50 focus:bg-opacity-100 ml-10">BLUE</span>
                         </div>
-                        
-                        <div class="flex justify-items-end">
-                              <x-button class="template-selection-btn" wire:click="$set('displaySecondModal', true)">
-                                    <p class="text-sm font-thin">Next Step</p>
-                              </x-button>
+                        <div class="bg-opacity-50 focus:bg-opacity-100 mb-10">
+                              <button id="color-button-orange" onclick="enableSlider('slider2','color-button-orange') " class="bg-yellow-500 bg-opacity-50 focus:bg-opacity-100 rounded-full focus:rounded-full h-7 w-7 pb-2"></button>
+                              <span class="text-center font-thin bg-opacity-50 focus:bg-opacity-100 ml-10">ORANGE</span>
+                        </div>
+                        <div class="bg-opacity-50 focus:bg-opacity-100 mb-10">
+                              <button id="color-button-green" onclick="enableSlider('slider3','color-button-green') " class="bg-green-400 bg-opacity-50 focus:bg-opacity-100 rounded-full focus:rounded-full h-7 w-7 pb-2"></button>
+                              <span class="text-center font-thin bg-opacity-50 focus:bg-opacity-100 ml-10">GREEN</span>
+                        </div>
+                        <div class="bg-opacity-50 focus:bg-opacity-100 mb-10">
+                              <button id="color-button-red" onclick="enableSlider('slider4','color-button-red') " class="bg-red-400 bg-opacity-50 focus:bg-opacity-100 rounded-full focus:rounded-full h-7 w-7 pb-2"></button>
+                              <span class="text-center font-thin bg-opacity-50 focus:bg-opacity-100 ml-10">RED</span>
+                        </div>
+                  </div>
+                  <div class="ml-10">
+                        <x-button class="template-selection-btn" wire:click="$set('displaySecondModal', true)">
+                              <p class="text-sm font-thin">Next Step</p>
+                        </x-button>
+                  </div>
+                  </div>
+            </div>
+
+            <div class="justify-end ml-10">
+                  <div id="sliders" class="pl-24 pr-24">
+                        <div id="slider1">
+                              <x-image/>
+                        </div>
+                        <div id="slider2">
+                              <x-image/>
+                        </div>
+                        <div id="slider3">
+                              <x-image/>
+                        </div>
+                        <div id="slider4">
+                              <x-image/>
                         </div>
                   </div>
             </div>
-            <div id="sliders" class="container mx-auto">
-                  <div id="slider1">
-                        <x-image/>
-                  </div>
-                  <div id="slider2">
-                        <x-image/>
-                  </div>
-                  <div id="slider3">
-                        <x-image/>
-                  </div>
-                  <div id="slider4">
-                        <x-image/>
-                  </div>
-            </div>
+
       </div>
 </x-hero-slider-modal>
 @endif

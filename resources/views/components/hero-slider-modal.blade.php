@@ -42,6 +42,11 @@
 		{
 			
 			const filename = file.split('.')[0];
+					modal.classList.remove('fadeOut');
+					modal.classList.add('fadeIn');
+					modal.style.display = 'flex';
+					$('#color-button-blue').removeClass('bg-opacity-50');
+					$('#color-button-blue').addClass('bg-opacity-100');
 			// Display all available sliders
 			document.querySelectorAll('#sliders div').forEach( (item, index) => {
 				getBase64Image( `${window.location.href}images/${filename}/${filename}-colored-${index+1}.jpg`, 'jpg', function (base64Url) {
@@ -49,8 +54,6 @@
 					modal.classList.remove('fadeOut');
 					modal.classList.add('fadeIn');
 					modal.style.display = 'flex';
-					$('#second-card').hide();
-
 					$('#color-button-blue').removeClass('bg-opacity-50');
 					$('#color-button-blue').addClass('bg-opacity-100');
 
