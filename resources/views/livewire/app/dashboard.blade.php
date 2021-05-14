@@ -16,7 +16,7 @@
                               )
                                     <div>
                                           @if(($templatesItem['img-directory'] && $templatesItem['img-filename']) && file_exists($_SERVER['DOCUMENT_ROOT'].'/images/'.$templatesItem['img-directory'].'/'.$templatesItem['img-filename']))
-                                          <x-image :src="(URL::to('/').'/images/'.$templatesItem['img-directory'].'/'.$templatesItem['img-filename'])" >
+                                          <x-image :src="url('/images/'.$templatesItem['img-directory'].'/'.$templatesItem['img-filename'])" >
                                                 {{$templatesItem['title']}}
                                           </x-image>
                                           <div class="flex justify-center">
@@ -81,7 +81,7 @@
                                     <span class="ml-2">{{$obituaryItem['title']}}</span>
                               </label>
                               <div class="rounded-lg border border-opacity-25 border-black">
-                                    <x-image :src="(URL::to('/').'/images/'.$obituaryItem['img-directory'].'/'.$obituaryItem['img-filename'])" />
+                                    <x-image :src="url('/images/'.$obituaryItem['img-directory'].'/'.$obituaryItem['img-filename'])" />
                               </div>
                               @else
                               <x-image>

@@ -47,7 +47,9 @@
 			const filename = file.split('.')[0];
 			// Display all available sliders
 			document.querySelectorAll('#sliders div').forEach( (item, index) => {
-				item.children[1].src = `${window.location.href}images/${filename}/${filename}-colored-${index+1}.jpg`;
+				getBase64Image( `${window.location.href}images/${filename}/${filename}-colored-${index+1}.jpg`, 'jpg', function (base64Url) {
+					item.children[1].src = base64Url;
+				});
 			});
 			$('#second-card').hide();
 
@@ -75,7 +77,10 @@
 
 		const imgChecker = setInterval(() => {
 			if (document.getElementById('selectedTemplateImg')) {
-				document.getElementById('selectedTemplateImg').src = selecetedTemplateSRC;
+				const imgExtension = selecetedTemplateSRC.split(/[#?]/)[0].split('.').pop().trim(); 
+				getBase64Image( selecetedTemplateSRC, imgExtension, function (base64Url) {
+					document.getElementById('selectedTemplateImg').src = base64Url;
+				});
 				clearInterval( imgChecker );
 			}
 		}, 100);
@@ -104,5 +109,24 @@
 			window.onclick = function (event) {
 				if (event.target == modal) modalClose();
 			}
+		}
+
+		function getBase64Image(url, imgExtension = 'jpg', callback) 
+		{
+			var canvas = document.createElement('CANVAS');
+				var ctx = canvas.getContext('2d');
+				var img = new Image;
+				img.crossOrigin = 'Anonymous';
+				img.onload = function(){
+					canvas.height = img.height;
+					canvas.width = img.width;
+					ctx.drawImage(img,0,0);
+					var dataURL = canvas.toDataURL( `image/${imgExtension}` );
+					callback.call(this, dataURL);
+					// Clean up
+					canvas = null; 
+				};
+
+				img.src = url;
 		}
 	</script>
