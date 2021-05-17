@@ -143,25 +143,33 @@
                         <h3 class="font-semibold text-4xl tracking-wide">
                               Select Main Color
                         </h3>
-                  <div class="pl-5 pr-10 mt-5">
-                        <div class="color-button-blue-div bg-opacity-50 focus:bg-opacity-100 mb-10 p-2 w-2/3">
-                              <button id="color-button-blue" onclick="enableSlider('slider1','color-button-blue')" class="bg-blue-700 bg-opacity-50 focus:bg-opacity-100 rounded-full focus:rounded-full h-7 w-7 pb-2" ></button>
-                              <span class="text-center font-thin bg-opacity-50 focus:bg-opacity-100 ml-5">BLUE AND GREY</span>
+                  <div class="pl-5 pr-5 mt-5">
+                        <div class="color-button-blue-div bg-opacity-50 focus:bg-opacity-100 mb-2 p-4 w-2/3">
+                              <button id="color-button-blue" onclick="enableSlider('slider1','color-button-blue')" class="focus:outline-none" >
+                                          <span class="inline-block align-middle bg-blue-700 bg-opacity-50 focus:bg-opacity-100 rounded-full  h-7 w-7 "></span>      
+                                          <span class="inline-block align-middle text-center font-thin bg-opacity-50 focus:bg-opacity-100 ml-5">BLUE AND GREY</span>
+                              </button>
                         </div>
-                        <div class="color-button-orange-div bg-opacity-50 focus:bg-opacity-100 mb-10 p-2 w-2/3">
-                              <button id="color-button-orange" onclick="enableSlider('slider2','color-button-orange') " class="bg-yellow-500 bg-opacity-50 focus:bg-opacity-100 rounded-full focus:rounded-full h-7 w-7 pb-2"></button>
-                              <span class="text-center font-thin bg-opacity-50 focus:bg-opacity-100 ml-5">ORANGE AND RED</span>
+                        <div class="color-button-orange-div bg-opacity-50 focus:bg-opacity-100 mb-2 p-4 w-2/3">
+                              <button id="color-button-orange" onclick="enableSlider('slider2','color-button-orange')" class="focus:outline-none" >
+                                          <span class="inline-block align-middle bg-yellow-500 bg-opacity-50 focus:bg-opacity-100 rounded-full  h-7 w-7 "></span>      
+                                          <span class="inline-block align-middle text-center font-thin bg-opacity-50 focus:bg-opacity-100 ml-5">ORANGE AND RED</span>
+                              </button>
                         </div>
-                        <div class="color-button-green-div bg-opacity-50 focus:bg-opacity-100 mb-10 p-2 w-2/3">
-                              <button id="color-button-green" onclick="enableSlider('slider3','color-button-green') " class="bg-green-500 bg-opacity-50 focus:bg-opacity-100 rounded-full focus:rounded-full h-7 w-7 pb-2"></button>
-                              <span class="text-center font-thin bg-opacity-50 focus:bg-opacity-100 ml-5">GREEN AND TEAL</span>
+                        <div class="color-button-green-div bg-opacity-50 focus:bg-opacity-100 mb-2 p-4 w-2/3">
+                              <button id="color-button-green" onclick="enableSlider('slider3','color-button-green')" class="focus:outline-none" >
+                                          <span class="inline-block align-middle bg-green-500 bg-opacity-50 focus:bg-opacity-100 rounded-full  h-7 w-7 "></span>      
+                                          <span class="inline-block align-middle text-center font-thin bg-opacity-50 focus:bg-opacity-100 ml-5">GREEN AND TEAL</span>
+                              </button>
                         </div>
-                        <div class="color-button-red-div bg-opacity-50 focus:bg-opacity-100 mb-10 p-2 w-2/3">
-                              <button id="color-button-red" onclick="enableSlider('slider4','color-button-red') " class="bg-yellow-900 bg-opacity-50 focus:bg-opacity-100 rounded-full focus:rounded-full h-7 w-7 pb-2"></button>
-                              <span class="text-center font-thin bg-opacity-50 focus:bg-opacity-100 ml-5">BROWN AND TAN</span>
+                        <div class="color-button-red-div bg-opacity-50 focus:bg-opacity-100 mb-2 p-4 w-2/3">
+                              <button id="color-button-red" onclick="enableSlider('slider4','color-button-red') " class="focus:outline-none" >
+                                          <span class="inline-block align-middle bg-yellow-900 bg-opacity-50 focus:bg-opacity-100 rounded-full  h-7 w-7 "></span>      
+                                          <span class="inline-block align-middle text-center font-thin bg-opacity-50 focus:bg-opacity-100 ml-5">BROWN AND TAN</span>
+                              </button>
                         </div>
                   </div>
-                  <div class="ml-10">
+                  <div class="ml-5 mt-5">
                         <x-button class="template-selection-btn" wire:click="$set('displaySecondModal', true)">
                               <p class="text-sm font-thin">Next Step</p>
                         </x-button>
@@ -169,7 +177,7 @@
                   </div>
             </div>
 
-            <div class="justify-end ml-10">
+            <div class="justify-end ml-5">
                   <div id="sliders" class="pl-24 pr-24">
                         <div id="slider1">
                               <x-image/>

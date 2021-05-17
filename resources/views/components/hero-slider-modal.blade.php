@@ -1,7 +1,9 @@
 	<div class="main-modal fixed w-full h-screen inset-0 z-50 overflow-hidden items-center animated fadeIn faster"
 		style="background: rgba(0,0,0,.7);">
+		
 		<div
 			class="border border-teal-500 shadow-lg modal-container bg-white w-full h-screen mx-auto rounded shadow-lg z-50 overflow-y-auto">
+			<x-loading-screen> Wait a moment while we load all the assets.</x-loading-screen>
 			<div class="modal-content py-4 text-left px-6">
 				<!--Title-->
 				<div class="flex justify-between items-center pb-3">
@@ -40,33 +42,53 @@
 
 		const openModal = (file) => 
 		{
-			
+			// Enable Loading Screen
+			document.getElementById('loading-screen').classList.remove('hidden');
+
 			const filename = file.split('.')[0];
+
+			// Partially display image
+			const imgSource = `${window.location.href}images/${filename}/${filename}-colored-1.jpg`;
+
+			document.querySelectorAll('#sliders div').forEach( (item, index) => {
+				if (index > 0) 
+					$(`#${item.id}`).hide();
+			});
+
+			getBase64Image( imgSource , 'jpg', function (base64Url) {
+				document.querySelectorAll(`#slider1 img`)[0].src = base64Url;
+
+				modal.classList.remove('fadeOut');
+				modal.classList.add('fadeIn');
+				modal.style.display = 'flex';
+
+				$('#color-button-blue').removeClass('bg-opacity-50');
+				$('#color-button-blue').addClass('bg-opacity-100');
+				$('.color-button-blue-div').css('background-color', 'rgba(243, 244, 246, var(--tw-bg-opacity))');
+			});
+			
+
 			// Display all available sliders
 			document.querySelectorAll('#sliders div').forEach( (item, index) => {
-				const imgSource = `${window.location.href}images/${filename}/${filename}-colored-${index+1}.jpg`;
+				// will jump up on the next index
+				if (index > 0) {
+					const imgSource = `${window.location.href}images/${filename}/${filename}-colored-${index+1}.jpg`;
 
-				// Inser Partial image src
-				item.children[1].src = imgSource;
+					getBase64Image( imgSource , 'jpg', function (base64Url) {
+						// Set base url
+						item.children[1].src = base64Url;
 
-				getBase64Image( imgSource , 'jpg', function (base64Url) {
-					item.children[1].src = base64Url;
-					modal.classList.remove('fadeOut');
-					modal.classList.add('fadeIn');
-					modal.style.display = 'flex';
-					$('#color-button-blue').removeClass('bg-opacity-50');
-					$('#color-button-blue').addClass('bg-opacity-100');
-					$('.color-button-blue-div').css('background-color', 'rgba(243, 244, 246, var(--tw-bg-opacity))');
-
-					selecetedTemplateSRC = document.querySelectorAll(`#slider1 img`)[0].src;
-					document.getEle
-					document.querySelectorAll('#sliders div').forEach( (item, index) => {
-						if (index > 0) {
-							$(`#${item.id}`).hide();
+						selecetedTemplateSRC = document.querySelectorAll(`#slider1 img`)[0].src;
+						
+						if ( (index+1) === document.querySelectorAll('#sliders div').length) {
+							// Disable Loading Screen
+							document.getElementById('loading-screen').classList.add('hidden');
 						}
 					});
-				});
+				}
 			});
+
+			
 		}
 
 		const enableSlider  = (sliderDivId, buttonId) => 
@@ -75,8 +97,10 @@
 			$('#color-button-blue').addClass('bg-opacity-50');
 			$('.color-button-blue-div').css('background-color', '');
 			// Disable all sliders
-			document.querySelectorAll('#sliders div').forEach( item => $(`#${item.id}`).fadeOut(400));
-			$(`#${sliderDivId}`).delay(400).fadeIn(400);
+			document.querySelectorAll('#sliders div').forEach( item => $(`#${item.id}`).hide());
+
+			// Display selected slider
+			$(`#${sliderDivId}`).show();
 			selecetedTemplateSRC = document.querySelectorAll(`#${sliderDivId} img`)[0].src;
 		}
 
@@ -94,7 +118,7 @@
 		const displaySecondCard = () => 
 		{
 			$('#main-card').hide();
-			(`#second-card`).delay(400).fadeIn(400);
+			(`#second-card`).delay(200).fadeIn(200);
 		}
 
 		const displayMainCard = () => 
