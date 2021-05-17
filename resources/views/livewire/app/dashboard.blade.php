@@ -138,7 +138,7 @@
 <x-hero-slider-modal>
       <div class="flex justify-between overflow-hidden p-24">
 
-            <div class="flext justify-start w-3/6">
+            <div class="flext justify-start md:2/3 lg:w-3/6">
                   <div >
                         <h3 class="font-semibold text-4xl tracking-wide">
                               Select Main Color
