@@ -42,23 +42,24 @@
 		{
 			
 			const filename = file.split('.')[0];
-					modal.classList.remove('fadeOut');
-					modal.classList.add('fadeIn');
-					modal.style.display = 'flex';
-					$('#color-button-blue').removeClass('bg-opacity-50');
-					$('#color-button-blue').addClass('bg-opacity-100');
 			// Display all available sliders
 			document.querySelectorAll('#sliders div').forEach( (item, index) => {
-				getBase64Image( `${window.location.href}images/${filename}/${filename}-colored-${index+1}.jpg`, 'jpg', function (base64Url) {
+				const imgSource = `${window.location.href}images/${filename}/${filename}-colored-${index+1}.jpg`;
+
+				// Inser Partial image src
+				item.children[1].src = imgSource;
+
+				getBase64Image( imgSource , 'jpg', function (base64Url) {
 					item.children[1].src = base64Url;
 					modal.classList.remove('fadeOut');
 					modal.classList.add('fadeIn');
 					modal.style.display = 'flex';
 					$('#color-button-blue').removeClass('bg-opacity-50');
 					$('#color-button-blue').addClass('bg-opacity-100');
+					$('.color-button-blue-div').css('background-color', 'rgba(243, 244, 246, var(--tw-bg-opacity))');
 
 					selecetedTemplateSRC = document.querySelectorAll(`#slider1 img`)[0].src;
-					
+					document.getEle
 					document.querySelectorAll('#sliders div').forEach( (item, index) => {
 						if (index > 0) {
 							$(`#${item.id}`).hide();
@@ -72,6 +73,7 @@
 		{
 			$('#color-button-blue').removeClass('bg-opacity-100');
 			$('#color-button-blue').addClass('bg-opacity-50');
+			$('.color-button-blue-div').css('background-color', '');
 			// Disable all sliders
 			document.querySelectorAll('#sliders div').forEach( item => $(`#${item.id}`).fadeOut(400));
 			$(`#${sliderDivId}`).delay(400).fadeIn(400);

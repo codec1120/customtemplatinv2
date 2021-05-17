@@ -83,3 +83,17 @@ button#color-button-red:focus {
     opacity: 1;
     outline:none;
 }
+
+.color-button-blue-div:focus-within,
+.color-button-orange-div:focus-within,
+.color-button-green-div:focus-within,
+.color-button-red-div:focus-within {
+    background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
+}
+
+.color-button-blue-div:hover,
+.color-button-orange-div:hover,
+.color-button-green-div:hover,
+.color-button-red-div:hover {
+    background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
+}
