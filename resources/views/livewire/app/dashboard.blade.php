@@ -76,20 +76,28 @@
                   )
                         <div>
                               @if(($obituaryItem['img-directory'] && $obituaryItem['img-filename']) && file_exists($_SERVER['DOCUMENT_ROOT'].'/images/'.$obituaryItem['img-directory'].'/'.$obituaryItem['img-filename']))
-                              <label class="inline-flex items-center">
-                                    <input type="radio" class="form-radio" name="selectedObituary"/>
-                                    <span class="ml-2">{{$obituaryItem['title']}}</span>
-                              </label>
-                              <div class="rounded-lg border border-opacity-25 border-black">
-                                    <x-image :src="url('/images/'.$obituaryItem['img-directory'].'/'.$obituaryItem['img-filename'])" />
-                              </div>
+                                    <label class="inline-flex items-center">
+                                          <input type="radio" class="form-radio" name="selectedObituary"/>
+                                          <span class="ml-2">{{$obituaryItem['title']}}</span>
+                                    </label>
+                                    <div class="rounded-lg border border-opacity-25 border-black">
+                                          <x-image :src="url('/images/'.$obituaryItem['img-directory'].'/'.$obituaryItem['img-filename'])" />
+                                    </div>
                               @else
-                              <x-image>
-                                    {{$obituaryItem['title']}}
-                              </x-image>
+                                    <x-image>
+                                          {{$obituaryItem['title']}}
+                                    </x-image>
                               @endif
                         </div>
                   @endforeach
+            </div>
+            <div class="w-full text-center mt-24">
+                  <h2 class="font-extrabold text-2xl tracking-wide">
+                        Select Hero Image(s) Options
+                  </h2>
+            </div>
+            <div class="w-full text-center">
+                  <x-uploader/>
             </div>
             <div class="w-full text-center mt-24">
                   <h2 class="font-extrabold text-2xl tracking-wide">
@@ -132,6 +140,7 @@
                         </div>
                   </div>
             </div>
+            
       </div>
 </x-hero-slider-modal>
 @else
