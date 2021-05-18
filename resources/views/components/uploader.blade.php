@@ -1,7 +1,7 @@
 <!-- component -->
-<div class="bg-white h-auto w-auto sm:px-8 md:px-16 sm:py-8">
+<div class="bg-white h-auto w-auto sm:px-8 md:px-16 sm:py-8 flex justify-center">
     <!-- file upload modal -->
-    <article aria-label="File Upload Modal" class="relative h-full flex flex-col bg-white shadow-xl rounded-md" id="attachment-container">
+    <article aria-label="File Upload Modal" {{ $attributes->merge(['class' => 'relative h-full flex flex-col bg-white shadow-xl rounded-md']) }}" id="attachment-container">
       <!-- overlay -->
       <div id="overlay" class="w-full h-full absolute top-0 left-0 pointer-events-none z-50 flex flex-col items-center justify-center rounded-md">
         <i>
@@ -22,13 +22,10 @@
           <button id="button" class="mt-2 rounded-sm px-3 py-1 bg-gray-200 hover:bg-gray-300 focus:shadow-outline focus:outline-none">
             Attach File
           </button>
-          <button id="attachUrl" class="mt-2 rounded-sm px-3 py-1 bg-gray-200 hover:bg-gray-300 focus:shadow-outline focus:outline-none">
-            Attach Files Options (URL)
-          </button>
         </header>
 
         <ul id="gallery" class="flex flex-1 flex-wrap -m-1">
-          <li id="empty" class="h-full w-full text-center flex flex-col items-center justify-center items-center">
+          <li id="empty" class="h-full w-full text-center flex flex-col items-center justify-center items-center mt-2">
             <img class="mx-auto w-32" src="https://user-images.githubusercontent.com/507615/54591670-ac0a0180-4a65-11e9-846c-e55ffce0fe7b.png" alt="no data" />
             <span class="text-small text-gray-500">No files selected</span>
           </li>
@@ -223,14 +220,5 @@ document.getElementById("cancel").onclick = () => {
   gallery.append(empty);
 };
 
-// Attach URL
-const attachURLBtn = document.getElementById('attachUrl');
-
-attachURLBtn.onclick = () => 
-{
-  modal.classList.remove('fadeOut');
-  modal.classList.add('fadeIn');
-  modal.style.display = 'flex';
-};
 
 </script>

@@ -96,8 +96,74 @@
                         Select Hero Image(s) Options
                   </h2>
             </div>
-            <div class="w-full text-center">
-                  <x-uploader/>
+            <div class="w-full text-center block">
+                  <x-tabs class="w-2/3">
+                        <div x-show="activeTab===0" class="h-full">
+                              <x-uploader class="w-full"/>
+                        </div>
+                        <div x-show="activeTab===1" class="h-full">
+                              <div class="w-full mt-5 pl-24 pr-24">
+                                    <div class="m-4 md:w-full px-3 mb-6 md:mb-0">
+                                          <p class="font-extrabold text-left text-base tracking-wide">
+                                                Image Options
+                                          </p>
+                                    </div>
+                                    <div class="md:w-full mt-5 px-3 mb-6 md:mb-0" id="urls">
+                                          <div class="m-4 flex" id="form-url1">
+                                                <input class="appearance-none inline-block w-full bg-grey-lighter text-grey-darker border border-opacity-25 border-red  rounded py-3 px-4 mb-3" 
+                                                      id="url1" 
+                                                      type="text" 
+                                                      placeholder="Enter URL here.">
+                                                <span class="h-12 cursor-pointer" onclick="removeURL('form-url1')">
+                                                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline-block mt-3 ml-2 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                                      </svg>
+                                                </span>
+                                          </div>
+                                          <div class="m-4 flex" id="form-url2">
+                                                <input class="appearance-none inline-block w-full bg-grey-lighter text-grey-darker border border-opacity-25 border-red  rounded py-3 px-4 mb-3" 
+                                                      id="url2" 
+                                                      type="text" 
+                                                      placeholder="Enter URL here.">
+                                                <span class="h-12 cursor-pointer" onclick="removeURL('form-url2')">
+                                                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline-block mt-3 ml-2 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                                      </svg>
+                                                </span>
+                                          </div>
+                                          <div class="m-4 flex" id="form-url3">
+                                                <input class="appearance-none inline-block w-full bg-grey-lighter text-grey-darker border border-opacity-25 border-red  rounded py-3 px-4 mb-3" 
+                                                      id="url3" 
+                                                      type="text" 
+                                                      placeholder="Enter URL here.">
+                                                <span class="h-12 cursor-pointer" onclick="removeURL('form-url3')">
+                                                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline-block mt-3 ml-2 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                                      </svg>
+                                                </span>
+                                          </div>
+                                          <div class="m-4 flex" id="form-url4">
+                                                <input class="appearance-none inline-block w-full bg-grey-lighter text-grey-darker border border-opacity-25 border-red  rounded py-3 px-4 mb-3" 
+                                                      id="url4" 
+                                                      type="text" 
+                                                      placeholder="Enter URL here.">
+                                                <span class="h-12 cursor-pointer" onclick="removeURL('form-url4')">
+                                                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline-block mt-3 ml-2 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                                      </svg>
+                                                </span>
+                                          </div>
+                                    </div>
+                                    <div class="m-4 flexw w-full flex justify-center" id="addUrl">
+                                          <span class="cursor-pointer" onclick="addURL()">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                </svg>
+                                          </span>
+                                    </div>
+                              </div>
+                        </div>
+                  </x-tabs>
             </div>
             <div class="w-full text-center mt-24">
                   <h2 class="font-extrabold text-2xl tracking-wide">
@@ -209,3 +275,45 @@
 </div>
 
 </div>
+<script>
+const removeURL = (elemId) => {
+      const URLInput = document.getElementById(elemId),
+            parent = document.getElementById('urls').children.length;
+
+      // Display button add.
+      if (!$('#addUrl').is(':visible')) {
+            document.getElementById('addUrl').classList.remove('hidden');
+      }
+            
+      if (parent > 1) {
+            URLInput.parentNode.removeChild(URLInput);
+      }
+}
+
+const addURL = () => {
+      const parentDivLength = document.getElementById('urls').children.length,
+            parentElement = document.getElementById(`urls`),
+            lastChildrenId = parentElement.children[parentDivLength - 1].id,
+            newIndex = lastChildrenId.replace( /^\D+/g, '');
+
+            $('#urls').append(`
+            <div class="m-4 flex" id="form-url${newIndex}">
+                  <input class="appearance-none inline-block w-full bg-grey-lighter text-grey-darker border border-opacity-25 border-red  rounded py-3 px-4 mb-3" 
+                        id="url${newIndex}" 
+                        type="text" 
+                        placeholder="Enter URL here.">
+                  <span class="h-12 cursor-pointer" onclick="removeURL('form-url${newIndex}')">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline-block mt-3 ml-2 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                  </span>
+            </div>`);
+
+            // Hide button add, This will re-count parent div's
+            if (document.getElementById('urls').children.length == 8) {
+                  document.getElementById('addUrl').classList.add('hidden');
+            }
+
+            
+}
+</script>

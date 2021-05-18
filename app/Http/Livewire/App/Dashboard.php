@@ -12,6 +12,12 @@ class Dashboard extends Component
     public $displaySecondModal= false;
     public $selectedObituary = false;
     public $selectedTemplate;
+    public $tabs = [
+        'activeTab' => 0,
+        'tabs' => [
+            'tab1', 'tab2'
+        ]
+    ];
 
     public function render()
     { 
