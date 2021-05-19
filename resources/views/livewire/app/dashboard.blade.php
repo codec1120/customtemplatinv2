@@ -216,7 +216,7 @@
             <div class="flext justify-start md:2/3 lg:w-3/6">
                   <div >
                         <h3 class="font-semibold text-4xl tracking-wide">
-                              Select Main Color
+                        Choose Color Scheme
                         </h3>
                   <div class="pl-5 pr-5 mt-5">
                         <div class="color-button-blue-div bg-opacity-50 focus:bg-opacity-100 mb-2 p-4 w-2/3">
